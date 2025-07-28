@@ -29,3 +29,33 @@ RealTime-CICFlowMeter/
 ├── feature_computation.py    # Feature extraction and CSV export
 ├── output/
 │   └── live_flow_features.csv  # Auto-generated output file
+
+---
+
+## Features Extracted (Sample)
+
+    Flow Duration, Total Packets/Bytes
+
+    Fwd/Bwd Packet Length Stats (Mean, Max, Min, Std)
+
+    Inter-Arrival Times (Flow, Fwd, Bwd)
+
+    Active/Idle Periods
+
+    Bulk Metrics (Fwd/Bwd rates, durations)
+
+    TCP Flags (SYN, ACK, URG, etc.)
+
+    Subflow Counts
+
+    Window Sizes, Header Lengths
+
+    Application-Layer Stats:
+
+        HTTP Requests/Responses, Methods, Status Codes
+
+        TLS Handshake Count, Version, Cipher Suite Count
+
+        DNS Query Types, Response Codes
+
+    🔢 Total: 97 CICFlowMeter-style features
