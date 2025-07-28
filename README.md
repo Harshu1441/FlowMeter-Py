@@ -72,5 +72,7 @@ RealTime-CICFlowMeter/
 ### Installation
 
 ```bash
-pip install pandas numpy scapy
-pip install pyshark  # Optional but recommended
+pip install pandas numpy
+pip install pyshark
+
+python main.py
