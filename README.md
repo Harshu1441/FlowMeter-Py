@@ -9,7 +9,7 @@ This tool extracts **97 detailed flow features** (transport + application layer)
 ## ✅ Key Features
 
 - **97 total flow features** (packet stats, IATs, flags, application-layer)
-- **Supports both PyShark (Wireshark)** and **Scapy** for packet capture
+- **Supports PyShark (Wireshark)** for packet capture
 - Extracts real-time flows from live traffic
 - **Auto-creates and writes to `output/live_flow_features.csv`**
 - Parses HTTP, TLS, and DNS layers
@@ -20,7 +20,6 @@ This tool extracts **97 detailed flow features** (transport + application layer)
 
 ## Project Structure
 
-```bash
 RealTime-CICFlowMeter/
 ├── main.py                   # Packet capture and orchestration
 ├── config.py                 # Constants and logging setup
@@ -31,31 +30,47 @@ RealTime-CICFlowMeter/
 │   └── live_flow_features.csv  # Auto-generated output file
 
 ---
+## Features Extracted (Sample Overview)
 
-## Features Extracted (Sample)
+- **Basic Flow Stats**  
+  `Flow Duration`, `Total Fwd/Bwd Packets`, `Total Fwd/Bwd Bytes`
 
-    Flow Duration, Total Packets/Bytes
+- **Packet Length Metrics**  
+  `Fwd/Bwd Packet Length Mean`, `Max`, `Min`, `Std`
 
-    Fwd/Bwd Packet Length Stats (Mean, Max, Min, Std)
+- **Time-Based Features**  
+  `Flow IAT Mean/Max/Min/Std`, `Fwd/Bwd IATs`, `Active/Idle Durations`
 
-    Inter-Arrival Times (Flow, Fwd, Bwd)
+- **TCP Flag Counts**  
+  `SYN`, `ACK`, `URG`, `FIN`, `PSH`, `RST`, etc.
 
-    Active/Idle Periods
+- **Bulk Transfer Features**  
+  Bulk durations, byte and packet counts, rate metrics
 
-    Bulk Metrics (Fwd/Bwd rates, durations)
+- **Header and Payload Details**  
+  `Header Length`, `Payload Bytes`, `Window Sizes`
 
-    TCP Flags (SYN, ACK, URG, etc.)
+- **Subflow Stats**  
+  `Subflow Count`, `Bytes per Subflow`, `Packets per Subflow`
 
-    Subflow Counts
+- **Application-Layer Statistics**
+  - **HTTP:** Method, Status Code, Header Fields
+  - **TLS:** Version, Cipher Suites, Handshake Counts
+  - **DNS:** Query Types, Response Codes
 
-    Window Sizes, Header Lengths
+> **Total:** 97 CICFlowMeter-style features
 
-    Application-Layer Stats:
+---
 
-        HTTP Requests/Responses, Methods, Status Codes
+## How to Run
 
-        TLS Handshake Count, Version, Cipher Suite Count
+### Prerequisites
 
-        DNS Query Types, Response Codes
+- Python 3.7+
+- [TShark](https://www.wireshark.org/docs/man-pages/tshark.html) installed (recommended for PyShark backend)
 
-    🔢 Total: 97 CICFlowMeter-style features
+### Installation
+
+```bash
+pip install pandas numpy scapy
+pip install pyshark  # Optional but recommended
